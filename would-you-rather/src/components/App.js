@@ -1,8 +1,10 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
+
+import Login from './Login'
+import Dashboard from './Dashboard'
 
 class App extends Component {
   componentDidMount() {
@@ -14,7 +16,11 @@ class App extends Component {
       <div>
         <LoadingBar />
         <div>
-          
+          {
+            this.props.loading
+            ? <Login />
+            : <Dashboard />
+          }
         </div>
       </div>
     )

@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.login-user-list {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.login-user-list-item {
+  width: 250px;
+  height: 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 4px auto;
+  background-color: gainsboro;
+  border-radius: 4px;
+}
+
+.login-user-list-item:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.user-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
