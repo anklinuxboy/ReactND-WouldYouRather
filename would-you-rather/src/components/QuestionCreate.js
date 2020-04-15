@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+
 import { handleCreateQuestion } from '../actions/shared'
 
 class QuestionCreate extends Component {
@@ -48,7 +50,7 @@ class QuestionCreate extends Component {
     const { optionOne, optionTwo, toHome } = this.state
 
     if (toHome) {
-      // route to home
+      return <Redirect to='/' />
     }
 
     return (

@@ -1,33 +1,57 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
+
+import { setAuthedUser } from '../actions/authedUser'
+import QuestionContainer from './QuestionContainer'
 
 class Dashboard extends Component {
-  render() {
-    const { authedUser, users, unansweredQuestions, answeredQuestions } = this.props
+  state = {
+    unansweredDisplay: 'show',
+    answeredDisplay: 'hide'
+  }
 
+  toggleUnansweredDisplay = (e) => {
+    e.preventDefault()
+    this.setState((currState) => {
+      return {
+        unansweredDisplay: currState.unansweredDisplay === 'show' ? 'hide' : 'show'
+      }
+    })
+  }
+
+  toggleAnsweredDisplay = (e) => {
+    e.preventDefault()
+    this.setState((currState) => {
+      return {
+        answeredDisplay: currState.answeredDisplay === 'show' ? 'hide' : 'show'
+      }
+    })
+  }
+
+  onLogout = (e) => {
+    e.preventDefault()
+
+    this.props.dispatch(setAuthedUser(null))
+  }
+
+  render() {
+    const { authedUser, url, unansweredQuestions, answeredQuestions } = this.props
+    const { unansweredDisplay, answeredDisplay } = this.state
     return (
-      <div className='container'>
-        <h3 className='category-header'>Unanswered Questions</h3>
-        <ul>
-          {
-            unansweredQuestions.map((qid) => (
-              <li key={qid}>
-                <Question id={qid} />
-              </li>
-            ))
-          }
-        </ul>
-        <h3 className='category-header'>Answered Questions</h3>
-        <ul>
-          {
-            answeredQuestions.map((qid) => (
-              <li key={qid}>
-                <Question id={qid} />
-              </li>
-            ))
-          }
-        </ul>
+      <div>
+        <div className='account'>
+          <p>{authedUser}</p>
+          <img className='account-user-image' src={url} alt='Avatar' />
+          <button onClick={this.onLogout}>Logout</button>
+        </div>
+        <h3 className='category-header' onClick={this.toggleUnansweredDisplay}>Unanswered Questions</h3>
+        <div className={`${unansweredDisplay}`}>
+          <QuestionContainer questionIds={unansweredQuestions} />
+        </div>
+        <h3 className='category-header' onClick={this.toggleAnsweredDisplay}>Answered Questions</h3>
+        <div className={`${answeredDisplay}`}>
+          <QuestionContainer questionIds={answeredQuestions} />
+        </div>
       </div>
     )
   }
@@ -41,18 +65,18 @@ function mapStateToProps({ authedUser, users, questions }) {
   const qids = Object.keys(questions).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
 
   qids.forEach(qid => {
-    if (questions[qid].optionOne.votes.length === 0 
-      && questions[qid].optionTwo.votes.length === 0) {
-        unansweredQuestions.push(qid)
+    if (questions[qid].optionOne.votes.includes(authedUser)
+      || questions[qid].optionTwo.votes.includes(authedUser)) {
+        answeredQuestions.push(qid)
     } else {
-      answeredQuestions.push(qid)
+      unansweredQuestions.push(qid)
     }
   })
 
 
   return {
     authedUser,
-    users: Object.keys(users),
+    url: users[authedUser].avatarURL,
     unansweredQuestions,
     answeredQuestions
   }

@@ -16,6 +16,21 @@ ul {
   list-style-type: none;
 }
 
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+.nav-element {
+  margin: 0px 8px;
+}
+
 .login-user-list {
   height: 100vh;
   display: flex;
@@ -45,6 +60,20 @@ ul {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+}
+
+.account {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.account-user-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0px 8px;
 }
 
 .container {
@@ -84,8 +113,18 @@ button:hover {
 }
 
 .category-header {
-  text-decoration: underline;
+  max-width: 500px;
+  height: 30px;
+  background-color: #e7eaf8;
   color: #0044e2;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+  margin: 16px auto;
+}
+
+.category-header:hover {
+  cursor: pointer;
 }
 
 .page-header {
@@ -128,4 +167,12 @@ button:hover {
   border-radius: 8px;
   justify-content: space-around;
   align-items: center;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
