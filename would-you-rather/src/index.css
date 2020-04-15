@@ -12,13 +12,16 @@ code {
     monospace;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .login-user-list {
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  list-style-type: none;
 }
 
 .login-user-list-item {
@@ -42,4 +45,87 @@ code {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.question {
+  max-width: 360px;
+  display: flex;
+  margin: 16px auto;
+  flex-flow: column nowrap;
+  padding: 4px 16px;
+  background-color: #e7eaf8;
+  border-radius: 8px;
+}
+
+.question-info {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.question-info-text {
+  margin: 0px auto;
+}
+
+button {
+  height: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #7086f5;
+}
+
+.category-header {
+  text-decoration: underline;
+  color: #0044e2;
+}
+
+.page-header {
+  max-width: 200px;
+  margin: 16px auto;
+  color: black;
+}
+
+.create-question-form {
+  max-width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 16px auto;
+  padding: 4px 16px;
+  background-color: #e7eaf8;
+  border-radius: 8px;
+}
+
+.question-option-input {
+  width: 280px;
+  height: 20px;
+  margin: 16px auto;
+}
+
+.form-header {
+  
+}
+
+.btn:disabled {
+  background-color: #E0E0E0;
+}
+
+.leaderboard-user {
+  max-width: 360px;
+  display: flex;
+  margin: 16px auto;
+  flex-flow: row nowrap;
+  padding: 4px 16px;
+  background-color: #e7eaf8;
+  border-radius: 8px;
+  justify-content: space-around;
+  align-items: center;
 }

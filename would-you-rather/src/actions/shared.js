@@ -18,7 +18,7 @@ export function handleInitialData() {
 export function handleCreateQuestion(optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
-
+    
     return saveQuestion({
       optionOneText,
       optionTwoText,

@@ -6,15 +6,16 @@ class Question extends Component {
     const { question, author, url } = this.props
 
     return (
-      <div>
+      <div className='question'>
         <h4>{`${author} asks`}</h4>
-        <div>
+        <div className='question-info'>
           <img className='user-image' src={url} alt={'Avatar'} />
-          <div>
-            <h6>Would You Rather</h6>
-            <p>{question.optionOne.text}</p>
+          <div className='question-info-text'>
+            <h4>Would You Rather</h4>
+            <p>{`${question.optionOne.text} or...`}</p>
           </div>
         </div>
+        <button>View Poll</button>
       </div>
     )
   }
