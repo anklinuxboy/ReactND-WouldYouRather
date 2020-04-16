@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
+  toParent = (e, id) => {
+    e.preventDefault()
+    this.props.history.push(`/question/${id}`)
+  }
+
   render() {
     const { question, author, url } = this.props
+    const id = question.id
 
     return (
-      <div className='question'>
+      <Link to={`/question/${id}`} className='question'>
         <h4>{`${author} asks`}</h4>
         <div className='question-info'>
           <img className='user-image' src={url} alt={'Avatar'} />
@@ -15,8 +22,8 @@ class Question extends Component {
             <p>{`${question.optionOne.text} or...`}</p>
           </div>
         </div>
-        <button>View Poll</button>
-      </div>
+        <button onClick={(e) => this.toParent(e, id)}>View Poll</button>
+      </Link>
     )
   }
 }
@@ -33,4 +40,4 @@ function mapStateToProps({ users, questions }, { id }) {
   }
 }
 
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))
