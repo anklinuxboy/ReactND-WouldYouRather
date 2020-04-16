@@ -227,3 +227,15 @@ button:hover {
 .option-text {
   font-weight: bold;
 }
+
+.error {
+  max-width: 300px;
+  height: 40px;
+  color: whitesmoke;
+  margin: 40px auto;
+  padding: 16px;
+  text-align: center;
+  background-color: #5E35B1;
+  border-radius: 8px;
+  font-weight: bold;
+}

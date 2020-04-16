@@ -13,7 +13,7 @@ class Question extends Component {
     const id = question.id
 
     return (
-      <Link to={`/question/${id}`} className='question'>
+      <Link to={`/questions/${id}`} className='question'>
         <h4>{`${author} asks`}</h4>
         <div className='question-info'>
           <img className='user-image' src={url} alt={'Avatar'} />

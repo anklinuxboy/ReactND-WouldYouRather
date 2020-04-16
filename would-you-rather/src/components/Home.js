@@ -18,7 +18,7 @@ class Home extends Component {
           <Route path='/' exact component={Dashboard} />
           <Route path='/add' component={QuestionCreate} />
           <Route path='/leaderboard' component={Leaderboard} />
-          <Route path='/question/:id' component={QuestionDetail} />
+          <Route path='/questions/:id' component={QuestionDetail} />
         </div>
       </div>
       </Router>
