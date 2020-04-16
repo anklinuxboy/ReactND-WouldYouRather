@@ -24,7 +24,7 @@ class QuestionDetail extends Component {
     const { selectedOption } = this.state
 
     if (question === null || question === undefined) {
-      return <p className='error'>{"404!!!! 🤕 This question doesn't exist"}</p>
+      return <p className='error'>"404!!!! <span role="img" aria-labelledby="bandage emoji">🤕</span> This question doesn't exist"</p>
     }
 
     const { optionOne, optionTwo } = question
