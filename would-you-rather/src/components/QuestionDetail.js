@@ -20,11 +20,23 @@ class QuestionDetail extends Component {
   }
 
   render() {
-    const { id, question, authedUser, author, url } = this.props
-
-    console.log('Question ', question)
-
+    const { question, authedUser, author, url } = this.props
     const { selectedOption } = this.state
+
+    if (question === null) {
+      return <p>{"This question doesn't exist"}</p>
+    }
+
+    const { optionOne, optionTwo } = question
+
+    let poll = true
+    if (optionOne.votes.includes(authedUser) 
+      || optionTwo.votes.includes(authedUser)) {
+        poll = false
+      }
+    const optionOneVotes = optionOne.votes.length
+    const optionTwoVotes = optionTwo.votes.length
+    const totalVotes = optionOneVotes + optionTwoVotes
 
     return (
       <div className='container'>
@@ -34,21 +46,38 @@ class QuestionDetail extends Component {
             <img className='user-image' src={url} alt={'Avatar'} />
             <div className='detail'>
               <h4>Would You Rather</h4>
-              <form onSubmit={this.onSubmit}>
-                <div className='radio-label'>
-                  <label>
-                    <input type='radio' name='option' value='optionOne' checked={selectedOption === 'optionOne'} onChange={this.onChange} />
-                    {question.optionOne.text}
-                  </label>
-                </div>
-                <div className='radio-label'>
-                  <label>
-                    <input type='radio' name='option' value='optionTwo' checked={selectedOption === 'optionTwo'} onChange={this.onChange} />
-                    {question.optionTwo.text}
-                  </label>
-                </div>
-                <input type='submit' value='Submit' />
-              </form>
+              {
+                poll 
+                ? <form onSubmit={this.onSubmit}>
+                    <div className='radio-label'>
+                      <label>
+                        <input type='radio' name='option' value='optionOne' checked={selectedOption === 'optionOne'} onChange={this.onChange} />
+                        {optionOne.text}
+                      </label>
+                    </div>
+                    <div className='radio-label'>
+                      <label>
+                        <input type='radio' name='option' value='optionTwo' checked={selectedOption === 'optionTwo'} onChange={this.onChange} />
+                        {optionTwo.text}
+                      </label>
+                    </div>
+                    <input type='submit' value='Submit' />
+                  </form>
+                : <div>
+                    <div className={optionOne.votes.includes(authedUser) ? 'user-selected' : 'user-not-selected'}>
+                      <p className={optionOne.votes.includes(authedUser) ? 'show' : 'hide'}>** You selected this option 🤘 **</p>
+                      <p className='option-text'>{optionOne.text}</p>
+                      <p>{`${Math.round((optionOneVotes/(totalVotes))*100)}% of people voted for this`}</p>
+                      <p>{`${optionOneVotes} out of ${totalVotes}`}</p>
+                    </div>
+                    <div className={optionTwo.votes.includes(authedUser) ? 'user-selected' : 'user-not-selected'}>
+                      <p className={optionTwo.votes.includes(authedUser) ? 'show' : 'hide'}> ** You selected this option 🤘 **</p>
+                      <p className='option-text'>{question.optionTwo.text}</p>
+                      <p>{`${Math.round((optionTwoVotes/(totalVotes))*100)}% of people voted for this`}</p>
+                      <p>{`${optionTwoVotes} out of ${totalVotes}`}</p>
+                    </div>
+                  </div>
+              }
             </div>
           </div>
         </div>

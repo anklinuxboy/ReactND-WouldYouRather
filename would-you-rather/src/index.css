@@ -151,10 +151,6 @@ button:hover {
   margin: 16px auto;
 }
 
-.form-header {
-  
-}
-
 .btn:disabled {
   background-color: #E0E0E0;
 }
@@ -204,4 +200,28 @@ button:hover {
 
 .radio-label {
   margin: 16px auto;
+}
+
+.user-selected {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #7E57C2;
+  color: whitesmoke;
+  padding: 4px;
+  border-radius: 8px;
+  margin: 4px auto;
+}
+
+.user-not-selected {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #B39DDB;
+  color: black;
+  padding: 4px;
+  border-radius: 8px;
+  margin: 4px auto;
+}
+
+.option-text {
+  font-weight: bold;
 }
