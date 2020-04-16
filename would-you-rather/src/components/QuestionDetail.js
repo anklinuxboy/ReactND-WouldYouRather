@@ -92,8 +92,8 @@ function mapStateToProps({ authedUser, users, questions }, props) {
   let author = ''
   let url = ''
   if (question !== undefined) {
-    author = users[question.id.author].name
-    url = users[question.id.author].avatarURL
+    author = users[question.author].name
+    url = users[question.author].avatarURL
   }
 
   return {
