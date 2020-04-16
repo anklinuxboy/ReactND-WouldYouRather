@@ -17,10 +17,11 @@ export function addQuestionToUser(qid, authedUser) {
   }
 }
 
-export function addAnswerToUser(qid, answer) {
+export function addAnswerToUser(qid, authedUser, answer) {
   return {
     type: ADD_ANSWER_TO_USER,
     qid,
+    authedUser,
     answer,
   }
 }

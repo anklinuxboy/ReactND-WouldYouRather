@@ -41,7 +41,7 @@ export function handleAnswerQuestion(qid, answer) {
       answer
     })
       .then(() => {
-        dispatch(addAnswerToUser(qid, answer))
+        dispatch(addAnswerToUser(qid, authedUser, answer))
         dispatch(answerQuestion(qid, authedUser, answer))
       })
   }

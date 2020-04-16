@@ -178,3 +178,30 @@ button:hover {
 .hide {
   display: none;
 }
+
+.question-detail {
+  max-width: 400px;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #e7eaf8;
+  border-radius: 8px;
+  padding: 8px;
+  justify-content: center;
+  margin: 16px auto;
+}
+
+.question-detail-info {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.detail {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.radio-label {
+  margin: 16px auto;
+}
