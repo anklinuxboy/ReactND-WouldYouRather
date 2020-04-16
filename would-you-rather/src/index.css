@@ -127,6 +127,8 @@ button:hover {
 
 .category-header:hover {
   cursor: pointer;
+  background-color: #673AB7;
+  color: white;
 }
 
 .page-header {
