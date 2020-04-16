@@ -23,7 +23,7 @@ class QuestionDetail extends Component {
     const { question, authedUser, author, url } = this.props
     const { selectedOption } = this.state
 
-    if (question === null) {
+    if (question === null || question === undefined) {
       return <p>{"This question doesn't exist"}</p>
     }
 
@@ -88,13 +88,20 @@ class QuestionDetail extends Component {
 
 function mapStateToProps({ authedUser, users, questions }, props) {
   const { id } = props.match.params
+  const question = questions[id]
+  let author = ''
+  let url = ''
+  if (question !== undefined) {
+    author = users[question.id.author].name
+    url = users[question.id.author].avatarURL
+  }
 
   return {
     id,
     question: questions[id],
     authedUser,
-    author: users[questions[id].author].name,
-    url: users[questions[id].author].avatarURL,
+    author: author,
+    url: url,
   }
 }
 

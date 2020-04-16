@@ -1,5 +1,8 @@
 # Would You Rather Project
 
+Update: This project can be started using `npm start` or `yarn start`. More info on how to start the project is available in the project directory README.
+This starter code was completed by me according to the rubric given by Udacity. The focus of the project was on Redux principles and not on CSS. The design can be improved, but I focused on learning Redux principles for this project.
+
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
