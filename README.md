@@ -1,13 +1,26 @@
 # Would You Rather Project
 
-Update: This project can be started using `npm start` or `yarn start`. More info on how to start the project is available in the project directory README.
-This starter code was completed by me according to the rubric given by Udacity. The focus of the project was on Redux principles and not on CSS. The design can be improved, but I focused on learning Redux principles for this project.
+To start the project:-
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+cd would-you-rather
+
+npm start
+
+You'll be presented with a choice of three users you can use to login as.
+Once you login, you'll have a nav bar which you can use to navigate to Home('/'), Add Poll ('/add') to create a new poll as the logged in user, and Leaderboard('/leaderboard) which shows the users with the most number of answered + unanswered questions in descending order.
+
+You also have the option to logout on Home and login as another user.
+
+When you create a poll, the poll will be added to the correct category on the Home page.
+
+When you reply to a poll, you'll see the results of that poll with the option you selected as marked with 'You selected this option 🤘' 
+
+Here's a video of the website.
+
+![Would You Rather](would-you-rather.gif)
+
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
-
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
 ## Data
 
@@ -49,7 +62,6 @@ Voting options are attached to questions. They include:
 | votes             | Array | A list that contains the id of each user who voted for that option|
 | text                | String | The text of the option |
 
-Your code will talk to the database via 4 methods:
 
 * `_getUsers()`
 * `_getQuestions()`
@@ -97,7 +109,3 @@ Your code will talk to the database via 4 methods:
 | authedUser | String | The id of the user who answered the question|
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
-
-## Contributing
-
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
